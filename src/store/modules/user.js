@@ -38,18 +38,40 @@ const actions = {
   login ({ commit }, userInfo) {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
-        const { userId, userName, type, name, phone } = response.extend.data
-        commit('SET_USER_ID', userId)
-        commit('SET_USERNAME', userName)
-        commit('SET_NAME', name)
-        commit('SET_ROLES', type)
-        commit('SET_PHONE', phone)
+      /**
+       * 替换成后面的真实接口，现在模拟用户切换
+       */
+      if (username === 'admin' && password === '123456') {
+        commit('SET_USER_ID', 'admin')
+        commit('SET_USERNAME', username)
+        commit('SET_NAME', 'admin')
+        commit('SET_ROLES', 2)
+        commit('SET_PHONE', 123456789)
         resetRouter()
-        resolve(response)
-      }).catch(error => {
-        reject(error)
-      })
+        resolve(username)
+      } else if (username === 'user' && password === '123456') {
+        commit('SET_USER_ID', 'user')
+        commit('SET_USERNAME', username)
+        commit('SET_NAME', 'user')
+        commit('SET_ROLES', 1)
+        commit('SET_PHONE', 178574873874)
+        resetRouter()
+        resolve(username)
+      } else {
+        reject(new Error('用户密码错误'))
+      }
+      // login({ username: username.trim(), password: password }).then(response => {
+      //   const { userId, userName, type, name, phone } = response.extend.data
+      //   commit('SET_USER_ID', userId)
+      //   commit('SET_USERNAME', userName)
+      //   commit('SET_NAME', name)
+      //   commit('SET_ROLES', type)
+      //   commit('SET_PHONE', phone)
+      //   resetRouter()
+      //   resolve(response)
+      // }).catch(error => {
+      //   reject(error)
+      // })
     })
   },
   register ({ commit }, userInfo) {
