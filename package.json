@@ -13,7 +13,7 @@
     "echarts": "^4.4.0",
     "element-ui": "^2.12.0",
     "nprogress": "^0.2.0",
-    "svg-sprite-loader": "^4.1.6",
+    "svg-sprite-loader": "^6.0.11",
     "v-charts": "^1.19.0",
     "v-echarts": "^1.0.2",
     "vue": "^2.6.10",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-eslint": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
